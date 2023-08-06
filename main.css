@@ -1,0 +1,32 @@
+body {
+  padding-bottom: 100vh;
+}
+
+#mainCanvas {
+  margin-right: 10px;
+}
+
+#panel > * {
+  display: inline-block;
+}
+
+#controler {
+  & td {
+    margin: 10px;
+    height: 6rem;
+    text-align: center;
+    & > input {
+      display: block;
+      width: 6rem;
+      margin: 3px 0.5rem;
+    }
+  }
+}
+
+.colorsample {
+  & > .color {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+  }
+}
