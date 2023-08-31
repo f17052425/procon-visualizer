@@ -135,11 +135,12 @@ const decrypto = (password, data) => {
   return [...arr].map(x=>String.fromCharCode(x)).join('');
 };
 
-const password = window.prompt('パスワードを入力')?.trim();
+const password = localStorage.getItem('password') ?? window.prompt('パスワードを入力')?.trim();
 const rightHash = '3328236998 1223133385 1997979040 2003998519 770592933 2615719006 4294551868 748931136';
 if (typeof password === 'string') {
   const hash = sha256(encoder.encode(password.split('').reverse().join('')));
   if (new Uint32Array(hash).join(' ') === rightHash) {
+    localStorage.setItem('password', password);
 
     const blob = new Blob([decrypto(password, source)], {
       type: 'text/javascript',
